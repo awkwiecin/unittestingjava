@@ -1,27 +1,35 @@
 package pl.awkwieicn.testing;
 
-public class Account {
+class Account {
 
     private boolean active;
     private Address defaultDeliveryAddress;
 
-    public Account() {
+    Account() {
         this.active = false;
     }
 
-    public void activate() {
+    public Account(Address defaultDeliveryAddress) {
+        this.defaultDeliveryAddress = defaultDeliveryAddress;
+        if (defaultDeliveryAddress!=null)
+            activate();
+        else
+            this.active = false;
+    }
+
+    void activate() {
         this.active=true;
     }
 
-    public boolean isActive() {
+    boolean isActive() {
         return this.active;
     }
 
-    public Address getDefaultDeliveryAddress() {
+    Address getDefaultDeliveryAddress() {
         return defaultDeliveryAddress;
     }
 
-    public void setDefaultDeliveryAddress(Address defaultDeliveryAddress) {
+    void setDefaultDeliveryAddress(Address defaultDeliveryAddress) {
         this.defaultDeliveryAddress = defaultDeliveryAddress;
     }
 }

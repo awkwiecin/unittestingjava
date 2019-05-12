@@ -1,5 +1,7 @@
 package pl.awkwieicn.testing;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,11 +12,25 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class OrderTest {
+class OrderTest {
+
+    private Order order;
+
+    @BeforeEach
+    void initializeOrder(){
+        System.out.println("-- Inside @BeforeEach method --");
+        order = new Order();
+    }
+
+    @AfterEach
+    void cleanup() {
+        System.out.println("-- Inside @AfterEach method --");
+        order.cancel();
+    }
 
     @Test
     void testAssertArrayEquals() {
-
+        System.out.println("-- Inside test --");
         //given
         int [] ints1 = {1,2,3};
         int [] ints2 = {1,2,3};
@@ -26,8 +42,7 @@ public class OrderTest {
     @Test
     void mealListShouldBeEmptyAfterCreationOfORder() {
         //given
-        Order order = new Order();
-
+        System.out.println("-- Inside test --");
         assertThat(order.getMeals(),empty());
         assertThat(order.getMeals().size(), equalTo(0));
         assertThat(order.getMeals(), hasSize(0));
@@ -37,9 +52,9 @@ public class OrderTest {
     @Test
     void addingMealToOrderShouldIncreaseOrderSize() {
         //given
+        System.out.println("-- Inside test --");
         Meal meal = new Meal(15, "Burger");
         Meal meal2 = new Meal(5, "Sandwich");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal);
@@ -55,9 +70,9 @@ public class OrderTest {
 
     @Test
     void removingMealFromOrderShouldDecreaseOrderSize() {
+        System.out.println("-- Inside test --");
         //given
         Meal meal = new Meal(15, "Burger");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal);
@@ -70,13 +85,12 @@ public class OrderTest {
 
     @Test
     void mealsShouldBeInCorrectOrderAfterAddingThemToOrder() {
-
+        System.out.println("-- Inside test --");
         //given
         Meal meal1 = new Meal(15, "Burger");
         Meal meal2 = new Meal(5, "Sandwich");
         Meal meal3 = new Meal(10, "Piadina");
 
-        Order order = new Order();
 
         order.addMealToOrder(meal1);
         order.addMealToOrder(meal2);
@@ -88,7 +102,7 @@ public class OrderTest {
 
     @Test
     void testIfTwoMealListAreTheSame() {
-
+        System.out.println("-- Inside test --");
         //given
         Meal meal1 = new Meal(15, "Burger");
         Meal meal2 = new Meal(5, "Sandwich");

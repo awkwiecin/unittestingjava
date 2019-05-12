@@ -1,10 +1,12 @@
 package pl.awkwieicn.testing;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 class AccountTest {
 
@@ -58,6 +60,20 @@ class AccountTest {
         //then
         assertNotNull(defaultAddress);
         assertThat(defaultAddress).isNotNull();
+    }
+
+    @RepeatedTest(12)
+    void newAccountWithNotNullAddressShouldBeActive() {
+        //given
+        Address address = new Address("Puławska", "46/6");
+
+        //when
+        Account account = new Account(address);
+
+        //then
+        assumingThat(address!=null, () -> {
+            assertThat(account.isActive());
+        });
     }
 
 }
