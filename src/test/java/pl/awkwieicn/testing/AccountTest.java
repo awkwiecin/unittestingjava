@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 @Tag("fries")
@@ -75,6 +76,24 @@ class AccountTest {
         assumingThat(address!=null, () -> {
             assertThat(account.isActive());
         });
+    }
+
+    @Test
+    void invslidEmailShouldThrowException() {
+        Account account = new Account();
+        assertThrows(IllegalArgumentException.class, () -> account.setEmail("wrongEmail"));
+    }
+
+    @Test
+    void validEmailShouldBeSet() {
+        //given
+        Account account = new Account();
+
+        //when
+        account.setEmail("awkwiecin@gmail.com");
+
+        //then
+        assertThat(account.getEmail()).isEqualTo("awkwiecin@gmail.com");
     }
 
 }

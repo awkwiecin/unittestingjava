@@ -19,7 +19,10 @@ public class OrderBackup {
     }
 
     void backupOrder(Order order) throws IOException {
-        writer.append(order.toString());
+        if (writer==null)
+            throw new IOException("Backup not created");
+        else
+            writer.append(order.toString());
     }
 
     void closeFile() throws IOException {
