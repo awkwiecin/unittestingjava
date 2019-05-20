@@ -1,4 +1,4 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.order;
 
 public enum OrderStatus {
     ORDERED, READY, DELIVERED

@@ -1,13 +1,15 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.order;
+
+import pl.awkwieicn.testing.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Order {
+public class Order {
 
     private List<Meal> meals = new ArrayList<>();
 
-    void addMealToOrder (Meal meal) {
+    public void addMealToOrder(Meal meal) {
         this.meals.add(meal);
     }
 
@@ -15,7 +17,7 @@ class Order {
         this.meals.remove(meal);
     }
 
-    List<Meal> getMeals() {
+    public List<Meal> getMeals() {
         return meals;
     }
 

@@ -1,6 +1,9 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.order;
 
 import org.junit.jupiter.api.*;
+import pl.awkwieicn.testing.Meal;
+import pl.awkwieicn.testing.order.Order;
+import pl.awkwieicn.testing.order.OrderBackup;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

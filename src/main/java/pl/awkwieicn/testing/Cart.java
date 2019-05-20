@@ -1,5 +1,7 @@
 package pl.awkwieicn.testing;
 
+import pl.awkwieicn.testing.order.Order;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,6 +2,7 @@ package pl.awkwieicn.testing;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pl.awkwieicn.testing.order.Order;
 
 import java.time.Duration;
 import java.util.List;

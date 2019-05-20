@@ -1,4 +1,4 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.extensions;
 
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;

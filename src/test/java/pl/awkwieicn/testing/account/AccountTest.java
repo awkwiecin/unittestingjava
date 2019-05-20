@@ -1,8 +1,10 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.account;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import pl.awkwieicn.testing.account.Account;
+import pl.awkwieicn.testing.account.Address;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

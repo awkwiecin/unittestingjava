@@ -1,4 +1,4 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.account;
 
 public class Address {
 
