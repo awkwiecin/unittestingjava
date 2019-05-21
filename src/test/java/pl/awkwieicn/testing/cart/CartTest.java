@@ -1,7 +1,9 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.cart;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pl.awkwieicn.testing.Cart.Cart;
+import pl.awkwieicn.testing.Meal;
 import pl.awkwieicn.testing.order.Order;
 
 import java.time.Duration;

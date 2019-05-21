@@ -1,5 +1,6 @@
-package pl.awkwieicn.testing;
+package pl.awkwieicn.testing.Cart;
 
+import pl.awkwieicn.testing.Meal;
 import pl.awkwieicn.testing.order.Order;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class Cart {
 
     private List<Order> orders = new ArrayList<>();
 
-    void addOrderToCart(Order order) {
+    public void addOrderToCart(Order order) {
         this.orders.add(order);
     }
 
@@ -17,7 +18,7 @@ public class Cart {
         this.orders.clear();
     }
 
-    void simulateLargeOrder() {
+    public void simulateLargeOrder() {
 
         for (int i = 0; i < 1_000; i++) {
             Meal meal = new Meal(i % 10, "Hamburger no " + i);
