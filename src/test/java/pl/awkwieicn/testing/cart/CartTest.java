@@ -2,7 +2,6 @@ package pl.awkwieicn.testing.cart;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pl.awkwieicn.testing.Cart.Cart;
 import pl.awkwieicn.testing.Meal;
 import pl.awkwieicn.testing.order.Order;
 
@@ -18,11 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 
-@DisplayName("Test cases for Cart")
+@DisplayName("Test cases for cart")
 class CartTest {
 
     //@Disabled
-    @DisplayName("Cart is able to process 1000 orders in 100ms")
+    @DisplayName("cart is able to process 1000 orders in 100ms")
     @Test
     void simulateLargeOrder() {
 

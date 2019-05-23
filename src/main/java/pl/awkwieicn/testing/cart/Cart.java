@@ -1,4 +1,4 @@
-package pl.awkwieicn.testing.Cart;
+package pl.awkwieicn.testing.cart;
 
 import pl.awkwieicn.testing.Meal;
 import pl.awkwieicn.testing.order.Order;
@@ -14,7 +14,7 @@ public class Cart {
         this.orders.add(order);
     }
 
-    void clearCart() {
+    public void clearCart() {
         this.orders.clear();
     }
 
@@ -26,7 +26,7 @@ public class Cart {
             order.addMealToOrder(meal);
             addOrderToCart(order);
         }
-        System.out.println("Cart size: " + orders.size());
+        System.out.println("cart size: " + orders.size());
         clearCart();
     }
 

@@ -1,4 +1,4 @@
-package pl.awkwieicn.testing.Cart;
+package pl.awkwieicn.testing.cart;
 
 import pl.awkwieicn.testing.order.OrderStatus;
 
