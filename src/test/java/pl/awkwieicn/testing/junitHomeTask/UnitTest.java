@@ -1,5 +1,6 @@
 package pl.awkwieicn.testing.junitHomeTask;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,41 +12,47 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 class UnitTest {
-    /*
-        @BeforeEach
-        void setup() {
-            Coordinates coordinates = new Coordinates(2,3);
-            Cargo cargo = new Cargo("Banany", 12);
-            Unit unit = new Unit(coordinates, 30, 20);
-        }*/
+
+        static Coordinates coordinates;
+        static Cargo cargo;
+        static Unit unit;
+
+        @BeforeAll
+        void setUp() {
+            coordinates = new Coordinates(2,3);
+            cargo = new Cargo("Banany", 12);
+            unit = new Unit(coordinates, 30, 20);
+        }
 
 
     @Test
     void coordinatesCannotBeBiggerThanFuel() {
 
-        Coordinates coordinates = new Coordinates(2, 3);
-        Unit unit = new Unit(coordinates, 30, 20);
+        //given
+        //when
+        //then
         assertThrows(IllegalStateException.class, () -> unit.move(50, 50));
 
     }
 
     @Test
     void tankingUpIncreasesFuel() {
-        Coordinates coordinates = new Coordinates(2, 3);
-        Unit unit = new Unit(coordinates, 30, 20);
+        //given
+        //when
         unit.move(12, 12);
         int fuelBuff = unit.getFuel();
         unit.tankUp();
+
+        //then
         assertThat(unit.getFuel(), greaterThan(fuelBuff));
     }
 
     @Test
     void cargoCannotBeBiggerThanMaxCargo() {
 
-        Coordinates coordinates = new Coordinates(2, 3);
-        Cargo cargo = new Cargo("Banany", 40);
-        Unit unit = new Unit(coordinates, 30, 20);
-
+        //given
+        //when
+        //then
         assertThrows(IllegalStateException.class, () -> unit.loadCargo(cargo));
     }
 
@@ -54,16 +61,16 @@ class UnitTest {
     @Test
     void unloadingCargoMakesLesserWeight() {
 
-        Coordinates coordinates = new Coordinates(2, 3);
-        Cargo cargo = new Cargo("Banany", 12);
+        //given
         Cargo cargo1 = new Cargo("Michael", 6);
-        Unit unit = new Unit(coordinates, 30, 20);
 
+        //when
         unit.loadCargo(cargo);
         unit.loadCargo(cargo1);
         int weightBuff = unit.getLoad();
         unit.unloadCargo(cargo);
 
+        //then
         assertThat(unit.getLoad(), lessThan(weightBuff));
 
     }
@@ -71,12 +78,12 @@ class UnitTest {
     @Test
     void cargoIsProperlyRemoved() {
 
-        Coordinates coordinates = new Coordinates(2, 3);
-        Cargo cargo = new Cargo("Banany", 12);
-        Unit unit = new Unit(coordinates, 30, 20);
-
+        //given
+        //when
         unit.loadCargo(cargo);
         unit.unloadAllCargo();
+
+        //then
         assertThat(unit.getLoad(),equalTo(0));
 
     }
